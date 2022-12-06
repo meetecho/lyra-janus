@@ -248,7 +248,7 @@ var lyraEncodeTransform = new TransformStream({
 			bytes[(i*2) + 1] = c;
 		}
 		let samples = new Int16Array(chunk.data);
-		let buffer = Float32Array.from(Float32Array.from(samples).map(x=>x/0x8000));
+		let buffer = Float32Array.from(samples).map(x=>x/0x8000);
 		let encoded = encodeWithLyra(buffer, 16000);
 		// Done
 		chunk.data = encoded.buffer;
