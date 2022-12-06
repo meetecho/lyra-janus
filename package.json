@@ -1,0 +1,26 @@
+{
+	"name": "lyra-janus",
+	"description": "Basic Janus/Lyra demo",
+	"version": "0.0.1",
+	"license": "GPLv3",
+	"keywords": [
+		"lyra",
+		"janus",
+		"webrtc",
+		"meetecho"
+	],
+	"author": {
+		"name": "Lorenzo Miniero",
+		"email": "lorenzo@meetecho.com"
+	},
+	"main": "src/server.js",
+	"dependencies": {
+		"cors": "^2.8.5",
+		"express": "^4.18.2",
+		"http": "^0.0.1-security"
+	},
+	"scripts": {
+		"build": "npm install --production",
+		"start": "node src/server.js"
+	}
+}

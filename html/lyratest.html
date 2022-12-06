@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Janus WebRTC Server: Lyra Test</title>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/webrtc-adapter/8.2.0/adapter.min.js" ></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.min.js" ></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.blockUI/2.70/jquery.blockUI.min.js" ></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/5.4.0/bootbox.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/spin.js/2.3.2/spin.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.js"></script>
+<script type="module" src="janus.js" ></script>
+<script type="module" src="lyratest.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.4.0/cerulean/bootstrap.min.css" type="text/css"/>
+<link rel="stylesheet" href="css/demo.css" type="text/css"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.css"/>
+</head>
+<body>
+
+<nav class="navbar navbar-default navbar-static-top">
+<div class="container">
+	<div class="navbar-header">
+		<a class="navbar-brand" href="index.html">Janus</a>
+		<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+		</button>
+	</div>
+	<div class="navbar-collapse collapse">
+		<ul class="nav navbar-nav">
+			<li><a href="index.html">Home</a></li>
+			<li class="active"><a href="lyratest.html">Lyra (demo)</a></li>
+			<li><a href="docs">Documentation</a></li>
+			<li><a href="citeus.html">Papers</a></li>
+			<li><a href="support.html">Need help?</a></li>
+			<li><a href="https://janus-legacy.conf.meetecho.com/">Janus (0.x)</a></li>
+			<li><a class="januscon" target="_blank" href="https://januscon.it">JanusCon!</a></li>
+		</ul>
+		<div class="navbar-header navbar-right">
+			<ul class="nav navbar-nav">
+				<li><a target="_blank" href="https://www.meetecho.com" class="navbar-link meetecho-logo"><img src="meetecho-logo.png"/></a></li>
+			</ul>
+		</div>
+	</div>
+</div>
+</nav>
+
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="page-header">
+				<h1>Plugin Demo: Lyra Test
+					<button disabled class="btn btn-default" autocomplete="off" id="start">Loading Lyra bundle...</button>
+				</h1>
+			</div>
+			<div class="container" id="details">
+				<div class="row">
+					<div class="col-md-12">
+						<h3>Demo details</h3>
+						<p>This is a variant of the Echo Test demo that uses
+						<a target="_blank" href="https://github.com/neuvideo/lyra-js">lyra-js</a>,
+						a WebAssembly port of Lyra, to use that codec as the audio stream
+						in the PeerConnection. It is partly based on the excellent
+						<a target="_blank" href="https://github.com/mayitayew/lyra-demo">lyra-demo</a>
+						project, in particular in terms of how raw audio frames are encoded
+						in JavaScript (and fed to the MediaStream via Insertable Streams),
+						and decoded accordingly on the way in. Considering Insertable Streams
+						are used, the code of the demo will be similar to <code>e2etest.html/.js</code>.
+						Besides, since only audio is relevant, unlike the regular Echo Test demo
+						video and data channels are disabled in this context.</p>
+						<p>Press the <code>Start</code> button above to launch the demo.</p>
+					</div>
+				</div>
+			</div>
+			<div class="container hide" id="videos">
+				<div class="row">
+					<div class="col-md-6">
+						<div class="panel panel-default">
+							<div class="panel-heading">
+								<h3 class="panel-title">Local Stream</h3>
+							</div>
+							<div class="panel-body" id="audioleft"></div>
+						</div>
+					</div>
+					<div class="col-md-6">
+						<div class="panel panel-default">
+							<div class="panel-heading">
+								<h3 class="panel-title">Remote Stream</h3>
+							</div>
+							<div class="panel-body" id="audioright"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<hr>
+	<div class="footer">
+		<p>Janus WebRTC Server &copy; <a href="http://www.meetecho.com">Meetecho</a> 2014-2022</p>
+	</div>
+</div>
+
+</body>
+</html>
